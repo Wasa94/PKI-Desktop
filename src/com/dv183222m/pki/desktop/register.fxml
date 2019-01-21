@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.layout.VBox?>
+<BorderPane style="-fx-background-color: #ECF0F1;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.172-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dv183222m.pki.desktop.RegisterController">
+    <top>
+        <VBox minHeight="75" alignment="CENTER">
+            <Label style="-fx-font-weight: bold; -fx-text-fill: #2C3E50; -fx-font-size: 25px;" text="REGISTRATION">
+            </Label>
+        </VBox>
+    </top>
+
+    <center>
+        <Group>
+            <StackPane>
+                <Rectangle fill="#3498DB" height="500" width="700">
+                </Rectangle>
+                <GridPane alignment="CENTER" hgap="10" vgap="15">
+                    <Label styleClass="labelMain" text="First Name:">
+                        <GridPane.rowIndex>0</GridPane.rowIndex>
+                        <GridPane.columnIndex>0</GridPane.columnIndex>
+                        <GridPane.halignment>RIGHT</GridPane.halignment>
+                    </Label>
+                    <TextField fx:id="firstName" minHeight="40" minWidth="254" style="-fx-font-size: 18px;">
+                        <GridPane.rowIndex>0</GridPane.rowIndex>
+                        <GridPane.columnIndex>1</GridPane.columnIndex>
+                    </TextField>
+
+                    <Label styleClass="labelMain" text="Last Name:">
+                        <GridPane.rowIndex>1</GridPane.rowIndex>
+                        <GridPane.columnIndex>0</GridPane.columnIndex>
+                        <GridPane.halignment>RIGHT</GridPane.halignment>
+                    </Label>
+                    <TextField fx:id="lastName" minHeight="40" minWidth="254" style="-fx-font-size: 18px;">
+                        <GridPane.rowIndex>1</GridPane.rowIndex>
+                        <GridPane.columnIndex>1</GridPane.columnIndex>
+                    </TextField>
+
+                    <Label styleClass="labelMain" text="Address:">
+                        <GridPane.rowIndex>2</GridPane.rowIndex>
+                        <GridPane.columnIndex>0</GridPane.columnIndex>
+                        <GridPane.halignment>RIGHT</GridPane.halignment>
+                    </Label>
+                    <TextField fx:id="address" minHeight="40" minWidth="254" style="-fx-font-size: 18px;">
+                        <GridPane.rowIndex>2</GridPane.rowIndex>
+                        <GridPane.columnIndex>1</GridPane.columnIndex>
+                    </TextField>
+
+                    <Label styleClass="labelMain" text="Phone Number:">
+                        <GridPane.rowIndex>3</GridPane.rowIndex>
+                        <GridPane.columnIndex>0</GridPane.columnIndex>
+                        <GridPane.halignment>RIGHT</GridPane.halignment>
+                    </Label>
+                    <TextField fx:id="phoneNumber" minHeight="40" minWidth="254" style="-fx-font-size: 18px;">
+                        <GridPane.rowIndex>3</GridPane.rowIndex>
+                        <GridPane.columnIndex>1</GridPane.columnIndex>
+                    </TextField>
+
+                    <Label styleClass="labelMain" text="Username:">
+                        <GridPane.rowIndex>4</GridPane.rowIndex>
+                        <GridPane.columnIndex>0</GridPane.columnIndex>
+                        <GridPane.halignment>RIGHT</GridPane.halignment>
+                    </Label>
+                    <TextField fx:id="username" minHeight="40" minWidth="254" style="-fx-font-size: 18px;">
+                        <GridPane.rowIndex>4</GridPane.rowIndex>
+                        <GridPane.columnIndex>1</GridPane.columnIndex>
+                    </TextField>
+
+                    <Label styleClass="labelMain" text="Password:">
+                        <GridPane.rowIndex>5</GridPane.rowIndex>
+                        <GridPane.columnIndex>0</GridPane.columnIndex>
+                        <GridPane.halignment>RIGHT</GridPane.halignment>
+                    </Label>
+                    <PasswordField fx:id="password" minHeight="40" minWidth="254" style="-fx-font-size: 18px;">
+                        <GridPane.rowIndex>5</GridPane.rowIndex>
+                        <GridPane.columnIndex>1</GridPane.columnIndex>
+                    </PasswordField>
+
+                    <GridPane hgap="10" vgap="10">
+                        <GridPane.rowIndex>6</GridPane.rowIndex>
+                        <GridPane.columnIndex>0</GridPane.columnIndex>
+                        <GridPane.columnSpan>2</GridPane.columnSpan>
+                        <GridPane.halignment>center</GridPane.halignment>
+
+                        <Button minHeight="40" minWidth="172" onAction="#register" styleClass="button" text="Register">
+                            <GridPane.rowIndex>0</GridPane.rowIndex>
+                            <GridPane.columnIndex>0</GridPane.columnIndex>
+                        </Button>
+                        <Button minHeight="40" minWidth="172" onAction="#cancel" styleClass="button" text="Cancel">
+                            <GridPane.rowIndex>0</GridPane.rowIndex>
+                            <GridPane.columnIndex>1</GridPane.columnIndex>
+                        </Button>
+                    </GridPane>
+                </GridPane>
+            </StackPane>
+        </Group>
+    </center>
+    <bottom>
+        <VBox minHeight="25"></VBox>
+    </bottom>
+</BorderPane>
