@@ -10,7 +10,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/multi-range-0.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/controlsfx-8.40.14.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

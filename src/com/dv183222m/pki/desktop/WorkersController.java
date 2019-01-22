@@ -2,7 +2,6 @@ package com.dv183222m.pki.desktop;
 
 import com.dv183222m.pki.data.DbContext;
 import com.dv183222m.pki.data.Worker;
-import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,7 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import multirange.MultiRange;
+import org.controlsfx.control.RangeSlider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,9 +18,9 @@ public class WorkersController {
     @FXML
     TableView table;
     @FXML
-    MultiRange multiRangeRating;
+    RangeSlider rangeSliderRating;
     @FXML
-    MultiRange multiRangeExp;
+    RangeSlider rangeSliderExp;
 
     @FXML
     public void initialize() {
@@ -51,21 +50,21 @@ public class WorkersController {
 
     private void initMultiRanges() {
 
-        multiRangeRating.setMax(5);
-        multiRangeRating.setMin(0);
-        multiRangeRating.setShowTickLabels(true);
-        multiRangeRating.setShowTickMarks(true);
-        multiRangeRating.setMajorTickUnit(1);
-        multiRangeRating.setMinorTickCount(4);
-        multiRangeRating.setSnapToTicks(true);
+        rangeSliderRating.setMax(5);
+        rangeSliderRating.setMin(0);
+        rangeSliderRating.setShowTickLabels(true);
+        rangeSliderRating.setShowTickMarks(true);
+        rangeSliderRating.setMajorTickUnit(1);
+        rangeSliderRating.setMinorTickCount(4);
+        rangeSliderRating.setSnapToTicks(true);
 
-        multiRangeExp.setMax(20);
-        multiRangeExp.setMin(0);
-        multiRangeExp.setShowTickLabels(true);
-        multiRangeExp.setShowTickMarks(true);
-        multiRangeExp.setMajorTickUnit(5);
-        multiRangeExp.setMinorTickCount(4);
-        multiRangeExp.setSnapToTicks(true);
+        rangeSliderExp.setMax(20);
+        rangeSliderExp.setMin(0);
+        rangeSliderExp.setShowTickLabels(true);
+        rangeSliderExp.setShowTickMarks(true);
+        rangeSliderExp.setMajorTickUnit(5);
+        rangeSliderExp.setMinorTickCount(4);
+        rangeSliderExp.setSnapToTicks(true);
     }
 
     private void populateTable(List<Worker> workerList) {
@@ -80,7 +79,7 @@ public class WorkersController {
     }
 
     public void details(ActionEvent actionEvent) {
-        System.out.println(multiRangeRating.getLowValue() + " " + multiRangeRating.getHighValue());
-        System.out.println(multiRangeExp.getLowValue() + " " + multiRangeExp.getHighValue());
+        System.out.println("Rating: " + rangeSliderRating.getLowValue() + " " + rangeSliderRating.getHighValue());
+        System.out.println("Exp: " + rangeSliderExp.getLowValue() + " " + rangeSliderExp.getHighValue());
     }
 }

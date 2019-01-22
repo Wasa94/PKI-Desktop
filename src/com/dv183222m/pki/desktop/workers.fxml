@@ -8,9 +8,9 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.TextField?>
-<?import multirange.MultiRange?>
-
 <?import javafx.geometry.Insets?>
+
+<?import org.controlsfx.control.RangeSlider?>
 <BorderPane style="-fx-background-color: #ECF0F1;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.172-ea"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dv183222m.pki.desktop.WorkersController">
     <top>
@@ -66,20 +66,22 @@
                                 <GridPane.columnIndex>2</GridPane.columnIndex>
                                 <GridPane.halignment>RIGHT</GridPane.halignment>
                             </Label>
-                            <MultiRange fx:id="multiRangeExp" maxHeight="26" maxWidth="165" stylesheets="@multirange.css">
+                            <RangeSlider fx:id="rangeSliderExp" maxHeight="26" maxWidth="165"
+                                         styleClass=".range-slider .axis, .range-slider .range-bar">
                                 <GridPane.rowIndex>0</GridPane.rowIndex>
                                 <GridPane.columnIndex>3</GridPane.columnIndex>
-                            </MultiRange>
+                            </RangeSlider>
 
                             <Label styleClass="labelMain" text="Rating:">
                                 <GridPane.rowIndex>1</GridPane.rowIndex>
                                 <GridPane.columnIndex>2</GridPane.columnIndex>
                                 <GridPane.halignment>RIGHT</GridPane.halignment>
                             </Label>
-                            <MultiRange fx:id="multiRangeRating" maxHeight="26" maxWidth="165" stylesheets="@multirange.css">
+                            <RangeSlider fx:id="rangeSliderRating" maxHeight="26" maxWidth="165"
+                                         styleClass=".range-slider .axis, .range-slider .range-bar">
                                 <GridPane.rowIndex>1</GridPane.rowIndex>
                                 <GridPane.columnIndex>3</GridPane.columnIndex>
-                            </MultiRange>
+                            </RangeSlider>
 
                             <Button text="Filter" onAction="#details" minWidth="172" minHeight="40" styleClass="button">
                                 <GridPane.rowIndex>2</GridPane.rowIndex>

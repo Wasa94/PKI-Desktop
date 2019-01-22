@@ -9,3 +9,15 @@
     -fx-text-fill: #ECF0F1;
     -fx-font-size: 20px;
 }
+
+.range-slider .axis {
+    -fx-text-background-color: #ECF0F1;
+    -fx-tick-label-fill: derive(-fx-text-background-color, 30%);
+    -fx-tick-length: 5px;
+    -fx-minor-tick-length: 3px;
+    -fx-border-color: null;
+}
+
+.range-slider .range-bar {
+    -fx-background-color: #3498DB;
+}
