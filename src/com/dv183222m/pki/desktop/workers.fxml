@@ -1,0 +1,110 @@
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.TextField?>
+<?import multirange.MultiRange?>
+
+<?import javafx.geometry.Insets?>
+<BorderPane style="-fx-background-color: #ECF0F1;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.172-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dv183222m.pki.desktop.WorkersController">
+    <top>
+        <VBox minHeight="75" alignment="CENTER">
+            <Label style="-fx-font-weight: bold; -fx-text-fill: #2C3E50; -fx-font-size: 25px;" text="WORKERS">
+            </Label>
+        </VBox>
+    </top>
+
+    <center>
+        <Group>
+            <StackPane>
+
+                <Rectangle fill="#3498DB" height="500" width="700">
+                </Rectangle>
+
+                <GridPane alignment="CENTER" vgap="20">
+                    <VBox style="-fx-background-color:#2980B9;">
+                        <padding>
+                            <Insets>
+                                <bottom>10</bottom>
+                                <top>10</top>
+                                <left>10</left>
+                                <right>10</right>
+                            </Insets>
+                        </padding>
+                        <GridPane.rowIndex>0</GridPane.rowIndex>
+                        <GridPane.columnIndex>0</GridPane.columnIndex>
+                        <GridPane vgap="10" hgap="5">
+                            <Label styleClass="labelMain" text="First Name:">
+                                <GridPane.rowIndex>0</GridPane.rowIndex>
+                                <GridPane.columnIndex>0</GridPane.columnIndex>
+                                <GridPane.halignment>RIGHT</GridPane.halignment>
+                            </Label>
+                            <TextField fx:id="firstName" maxHeight="26" maxWidth="165" style="-fx-font-size: 18px;">
+                                <GridPane.rowIndex>0</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </TextField>
+
+                            <Label styleClass="labelMain" text="Types of work:">
+                                <GridPane.rowIndex>1</GridPane.rowIndex>
+                                <GridPane.columnIndex>0</GridPane.columnIndex>
+                                <GridPane.halignment>RIGHT</GridPane.halignment>
+                            </Label>
+                            <TextField fx:id="typesOfWork" maxHeight="26" maxWidth="165" style="-fx-font-size: 18px;">
+                                <GridPane.rowIndex>1</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </TextField>
+
+
+                            <Label styleClass="labelMain" text="Experience:">
+                                <GridPane.rowIndex>0</GridPane.rowIndex>
+                                <GridPane.columnIndex>2</GridPane.columnIndex>
+                                <GridPane.halignment>RIGHT</GridPane.halignment>
+                            </Label>
+                            <MultiRange fx:id="multiRangeExp" maxHeight="26" maxWidth="165" stylesheets="@multirange.css">
+                                <GridPane.rowIndex>0</GridPane.rowIndex>
+                                <GridPane.columnIndex>3</GridPane.columnIndex>
+                            </MultiRange>
+
+                            <Label styleClass="labelMain" text="Rating:">
+                                <GridPane.rowIndex>1</GridPane.rowIndex>
+                                <GridPane.columnIndex>2</GridPane.columnIndex>
+                                <GridPane.halignment>RIGHT</GridPane.halignment>
+                            </Label>
+                            <MultiRange fx:id="multiRangeRating" maxHeight="26" maxWidth="165" stylesheets="@multirange.css">
+                                <GridPane.rowIndex>1</GridPane.rowIndex>
+                                <GridPane.columnIndex>3</GridPane.columnIndex>
+                            </MultiRange>
+
+                            <Button text="Filter" onAction="#details" minWidth="172" minHeight="40" styleClass="button">
+                                <GridPane.rowIndex>2</GridPane.rowIndex>
+                                <GridPane.columnIndex>2</GridPane.columnIndex>
+                                <GridPane.halignment>RIGHT</GridPane.halignment>
+                                <GridPane.columnSpan>2</GridPane.columnSpan>
+                            </Button>
+                        </GridPane>
+                    </VBox>
+
+                    <TableView fx:id="table" maxWidth="600" minWidth="600" maxHeight="170">
+                        <GridPane.rowIndex>1</GridPane.rowIndex>
+                        <GridPane.columnIndex>0</GridPane.columnIndex>
+                        <GridPane.halignment>CENTER</GridPane.halignment>
+                    </TableView>
+
+                    <Button text="Details" onAction="#details" minWidth="172" minHeight="40" styleClass="button">
+                        <GridPane.rowIndex>2</GridPane.rowIndex>
+                        <GridPane.columnIndex>0</GridPane.columnIndex>
+                    </Button>
+                </GridPane>
+            </StackPane>
+        </Group>
+    </center>
+    <bottom>
+        <VBox minHeight="25"></VBox>
+    </bottom>
+</BorderPane>

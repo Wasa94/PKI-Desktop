@@ -1,6 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -11,6 +8,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.layout.VBox?>
+
 <BorderPane style="-fx-background-color: #ECF0F1;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.172-ea"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dv183222m.pki.desktop.RegisterController">
     <top>
@@ -86,21 +84,24 @@
                         <GridPane.columnIndex>1</GridPane.columnIndex>
                     </PasswordField>
 
-                    <GridPane hgap="10" vgap="10">
+                    <Group>
                         <GridPane.rowIndex>6</GridPane.rowIndex>
                         <GridPane.columnIndex>0</GridPane.columnIndex>
                         <GridPane.columnSpan>2</GridPane.columnSpan>
-                        <GridPane.halignment>center</GridPane.halignment>
+                        <GridPane.halignment>CENTER</GridPane.halignment>
+                        <GridPane hgap="10" vgap="10">
 
-                        <Button minHeight="40" minWidth="172" onAction="#register" styleClass="button" text="Register">
-                            <GridPane.rowIndex>0</GridPane.rowIndex>
-                            <GridPane.columnIndex>0</GridPane.columnIndex>
-                        </Button>
-                        <Button minHeight="40" minWidth="172" onAction="#cancel" styleClass="button" text="Cancel">
-                            <GridPane.rowIndex>0</GridPane.rowIndex>
-                            <GridPane.columnIndex>1</GridPane.columnIndex>
-                        </Button>
-                    </GridPane>
+                            <Button minHeight="40" minWidth="172" onAction="#register" styleClass="button"
+                                    text="Register">
+                                <GridPane.rowIndex>0</GridPane.rowIndex>
+                                <GridPane.columnIndex>0</GridPane.columnIndex>
+                            </Button>
+                            <Button minHeight="40" minWidth="172" onAction="#cancel" styleClass="button" text="Cancel">
+                                <GridPane.rowIndex>0</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </Button>
+                        </GridPane>
+                    </Group>
                 </GridPane>
             </StackPane>
         </Group>

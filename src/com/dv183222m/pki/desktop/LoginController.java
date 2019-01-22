@@ -45,8 +45,10 @@ public class LoginController {
         }
     }
 
-    public void workers(ActionEvent actionEvent) {
-        System.out.println("Workers");
+    public void workers(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("workers.fxml"));
+        Main.PRIMARY_STAGE.setScene(new Scene(root, 800, 600));
+        Main.PRIMARY_STAGE.show();
     }
 
     public void register(ActionEvent actionEvent) throws IOException {
