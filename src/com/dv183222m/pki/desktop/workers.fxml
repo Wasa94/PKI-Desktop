@@ -11,6 +11,7 @@
 <?import javafx.geometry.Insets?>
 
 <?import org.controlsfx.control.RangeSlider?>
+<?import org.controlsfx.control.CheckComboBox?>
 <BorderPane style="-fx-background-color: #ECF0F1;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.172-ea"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dv183222m.pki.desktop.WorkersController">
     <top>
@@ -45,7 +46,7 @@
                                 <GridPane.columnIndex>0</GridPane.columnIndex>
                                 <GridPane.halignment>RIGHT</GridPane.halignment>
                             </Label>
-                            <TextField fx:id="firstName" maxHeight="26" maxWidth="165" style="-fx-font-size: 18px;">
+                            <TextField fx:id="firstName" maxHeight="26" maxWidth="165" minWidth="165" style="-fx-font-size: 14px;">
                                 <GridPane.rowIndex>0</GridPane.rowIndex>
                                 <GridPane.columnIndex>1</GridPane.columnIndex>
                             </TextField>
@@ -55,10 +56,10 @@
                                 <GridPane.columnIndex>0</GridPane.columnIndex>
                                 <GridPane.halignment>RIGHT</GridPane.halignment>
                             </Label>
-                            <TextField fx:id="typesOfWork" maxHeight="26" maxWidth="165" style="-fx-font-size: 18px;">
+                            <CheckComboBox fx:id="checkComboBox" maxHeight="26" maxWidth="165" minWidth="165">
                                 <GridPane.rowIndex>1</GridPane.rowIndex>
                                 <GridPane.columnIndex>1</GridPane.columnIndex>
-                            </TextField>
+                            </CheckComboBox>
 
 
                             <Label styleClass="labelMain" text="Experience:">

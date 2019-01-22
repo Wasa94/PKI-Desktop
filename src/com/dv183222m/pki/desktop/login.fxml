@@ -14,7 +14,10 @@
 <BorderPane fx:controller="com.dv183222m.pki.desktop.LoginController"
             xmlns:fx="http://javafx.com/fxml" style="-fx-background-color: #ECF0F1;" stylesheets="@styles.css">
     <top>
-        <VBox minHeight="75"></VBox>
+        <VBox minHeight="75" alignment="CENTER">
+            <Label style="-fx-font-weight: bold; -fx-text-fill: #2C3E50; -fx-font-size: 25px;" text="LOGIN">
+            </Label>
+        </VBox>
     </top>
 
     <center>
