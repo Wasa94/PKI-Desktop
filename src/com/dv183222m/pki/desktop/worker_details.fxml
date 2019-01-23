@@ -1,0 +1,5 @@
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane style="-fx-background-color: #ECF0F1;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.172-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dv183222m.pki.desktop.WorkerDetailsController">
+</BorderPane>

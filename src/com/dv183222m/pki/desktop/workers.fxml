@@ -41,7 +41,7 @@
                         <GridPane.rowIndex>0</GridPane.rowIndex>
                         <GridPane.columnIndex>0</GridPane.columnIndex>
                         <GridPane vgap="10" hgap="5">
-                            <Label styleClass="labelMain" text="First Name:">
+                            <Label styleClass="labelFilter" text="First Name:">
                                 <GridPane.rowIndex>0</GridPane.rowIndex>
                                 <GridPane.columnIndex>0</GridPane.columnIndex>
                                 <GridPane.halignment>RIGHT</GridPane.halignment>
@@ -51,18 +51,28 @@
                                 <GridPane.columnIndex>1</GridPane.columnIndex>
                             </TextField>
 
-                            <Label styleClass="labelMain" text="Types of work:">
+                            <Label styleClass="labelFilter" text="Last Name:">
                                 <GridPane.rowIndex>1</GridPane.rowIndex>
                                 <GridPane.columnIndex>0</GridPane.columnIndex>
                                 <GridPane.halignment>RIGHT</GridPane.halignment>
                             </Label>
-                            <CheckComboBox fx:id="checkComboBox" maxHeight="26" maxWidth="165" minWidth="165">
+                            <TextField fx:id="lastName" maxHeight="26" maxWidth="165" minWidth="165" style="-fx-font-size: 14px;">
                                 <GridPane.rowIndex>1</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </TextField>
+
+                            <Label styleClass="labelFilter" text="Types of work:">
+                                <GridPane.rowIndex>2</GridPane.rowIndex>
+                                <GridPane.columnIndex>0</GridPane.columnIndex>
+                                <GridPane.halignment>RIGHT</GridPane.halignment>
+                            </Label>
+                            <CheckComboBox fx:id="checkComboBox" maxHeight="26" maxWidth="165" minWidth="165">
+                                <GridPane.rowIndex>2</GridPane.rowIndex>
                                 <GridPane.columnIndex>1</GridPane.columnIndex>
                             </CheckComboBox>
 
 
-                            <Label styleClass="labelMain" text="Experience:">
+                            <Label styleClass="labelFilter" text="Experience:">
                                 <GridPane.rowIndex>0</GridPane.rowIndex>
                                 <GridPane.columnIndex>2</GridPane.columnIndex>
                                 <GridPane.halignment>RIGHT</GridPane.halignment>
@@ -73,7 +83,7 @@
                                 <GridPane.columnIndex>3</GridPane.columnIndex>
                             </RangeSlider>
 
-                            <Label styleClass="labelMain" text="Rating:">
+                            <Label styleClass="labelFilter" text="Rating:">
                                 <GridPane.rowIndex>1</GridPane.rowIndex>
                                 <GridPane.columnIndex>2</GridPane.columnIndex>
                                 <GridPane.halignment>RIGHT</GridPane.halignment>
@@ -84,7 +94,7 @@
                                 <GridPane.columnIndex>3</GridPane.columnIndex>
                             </RangeSlider>
 
-                            <Button text="Filter" onAction="#details" minWidth="172" minHeight="40" styleClass="button">
+                            <Button text="Filter" onAction="#filter" minWidth="172" minHeight="40" styleClass="button">
                                 <GridPane.rowIndex>2</GridPane.rowIndex>
                                 <GridPane.columnIndex>2</GridPane.columnIndex>
                                 <GridPane.halignment>RIGHT</GridPane.halignment>

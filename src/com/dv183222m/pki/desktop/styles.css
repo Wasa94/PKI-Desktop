@@ -21,3 +21,9 @@
 .range-slider .range-bar {
     -fx-background-color: #3498DB;
 }
+
+.labelFilter {
+    -fx-font-weight: bold;
+    -fx-text-fill: #ECF0F1;
+    -fx-font-size: 16px;
+}

@@ -7,24 +7,27 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.controlsfx.control.CheckComboBox;
 import org.controlsfx.control.RangeSlider;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class WorkersController {
-    @FXML
-    TableView table;
-    @FXML
-    RangeSlider rangeSliderRating;
-    @FXML
-    RangeSlider rangeSliderExp;
-    @FXML
-    CheckComboBox checkComboBox;
+    @FXML TableView table;
+    @FXML RangeSlider rangeSliderRating;
+    @FXML RangeSlider rangeSliderExp;
+    @FXML CheckComboBox checkComboBox;
+    @FXML TextField firstName;
+    @FXML TextField lastName;
 
     @FXML
     public void initialize() {
@@ -43,13 +46,14 @@ public class WorkersController {
         List<Worker> workerList = DbContext.INSTANCE.getWorkers();
         populateTable(workerList);
 
-        table.setFixedCellSize(25);
-        table.prefHeightProperty().bind(table.fixedCellSizeProperty().multiply(6.00).add(1.01));
+        table.setFixedCellSize(30);
+        table.prefHeightProperty().bind(table.fixedCellSizeProperty().multiply(6.00));
         table.minHeightProperty().bind(table.prefHeightProperty());
         table.maxHeightProperty().bind(table.prefHeightProperty());
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
         initMultiRanges();
+        initCheckComboBox();
     }
 
     private void initMultiRanges() {
@@ -84,7 +88,6 @@ public class WorkersController {
         final ObservableList<WorkerAdapter> data = FXCollections.observableArrayList(workerAdapters);
 
         table.setItems(data);
-        initCheckComboBox();
     }
 
     private void initCheckComboBox() {
@@ -98,9 +101,30 @@ public class WorkersController {
         checkComboBox.getItems().addAll(strings);
     }
 
-    public void details(ActionEvent actionEvent) {
-        System.out.println("Rating: " + rangeSliderRating.getLowValue() + " " + rangeSliderRating.getHighValue());
-        System.out.println("Exp: " + rangeSliderExp.getLowValue() + " " + rangeSliderExp.getHighValue());
-        System.out.println("Types: " + checkComboBox.getCheckModel().getCheckedItems());
+    public void details(ActionEvent actionEvent) throws IOException {
+        if(table.getSelectionModel() == null || table.getSelectionModel().getSelectedItem() == null) {
+            return;
+        }
+
+        WorkerAdapter workerAdapter = (WorkerAdapter)table.getSelectionModel().getSelectedItem();
+
+        WorkerDetailsController.setWorker(DbContext.INSTANCE.getUser(workerAdapter.getUsername()));
+
+        Parent root = FXMLLoader.load(getClass().getResource("worker_details.fxml"));
+        Main.PRIMARY_STAGE.setScene(new Scene(root, 800, 600));
+        Main.PRIMARY_STAGE.show();
+    }
+
+    public void filter(ActionEvent actionEvent) {
+        List<WorkerType> workerTypes = new ArrayList<>();
+        for (Object type: checkComboBox.getCheckModel().getCheckedItems()) {
+            workerTypes.add(WorkerType.valueOf(type.toString()));
+        }
+
+        List<Worker> workers = DbContext.INSTANCE.getWorkers(firstName.getText(), lastName.getText(), workerTypes,
+                (float)rangeSliderRating.getLowValue(), (float)rangeSliderRating.getHighValue(),
+                (float)rangeSliderExp.getLowValue(), (float)rangeSliderExp.getHighValue());
+
+        populateTable(workers);
     }
 }
