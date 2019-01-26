@@ -11,7 +11,7 @@ public class User {
     private String username;
     private String password;
     private Worker worker;
-    private int image;
+    private String image;
 
     public User(String firstName, String lastName, UserType type, String address,
                 String phoneNumber, String username, String password) {
@@ -22,6 +22,7 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.username = username;
         this.password = password;
+        this.image = "src/res/google.png";
 
         if (type == UserType.Worker) {
             worker = new Worker(this);
@@ -30,11 +31,11 @@ public class User {
         }
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

@@ -12,6 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import org.controlsfx.control.Rating;
 
+import java.io.File;
 import java.io.IOException;
 
 public class WorkerDetailsController {
@@ -45,6 +46,11 @@ public class WorkerDetailsController {
         rating.setRating(worker.getWorker().getRating());
         String years = worker.getWorker().getExperience() == 1 ? " year" : " years";
         experience.setText(worker.getWorker().getExperience() + years + " of experience");
+
+        if(worker.getImage() != null && !worker.getImage().isEmpty()) {
+            File file = new File(worker.getImage());
+            image.setImage(new Image(file.toURI().toString()));
+        }
     }
 
     public static void setWorker(User worker) {

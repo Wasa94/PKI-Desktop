@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+
+<BorderPane style="-fx-background-color: #ECF0F1;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.172-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dv183222m.pki.desktop.ProfileController">
+    <top>
+        <AnchorPane minHeight="75">
+            <GridPane AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="30.0">
+                <Button styleClass="button" text="Profile">
+                    <GridPane.rowIndex>0</GridPane.rowIndex>
+                    <GridPane.columnIndex>0</GridPane.columnIndex>
+                </Button>
+                <Button styleClass="button" text="Workers">
+                    <GridPane.rowIndex>0</GridPane.rowIndex>
+                    <GridPane.columnIndex>1</GridPane.columnIndex>
+                </Button>
+                <Button styleClass="button" text="Requests">
+                    <GridPane.rowIndex>0</GridPane.rowIndex>
+                    <GridPane.columnIndex>2</GridPane.columnIndex>
+                </Button>
+            </GridPane>
+
+            <Label fx:id="username" style="-fx-font-weight: bold; -fx-text-fill: #2C3E50; -fx-font-size: 25px;"
+                   text="Welcome, Mare" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
+            </Label>
+        </AnchorPane>
+    </top>
+
+    <center>
+        <Group>
+            <StackPane>
+                <Rectangle fill="#3498DB" height="500" width="700">
+                </Rectangle>
+
+                <Group StackPane.alignment="TOP_CENTER">
+                    <StackPane.margin>
+                        <Insets top="20.0"/>
+                    </StackPane.margin>
+                    <VBox>
+                        <GridPane hgap="20" vgap="10">
+                            <ImageView fx:id="image">
+                                <GridPane.rowIndex>0</GridPane.rowIndex>
+                                <GridPane.columnIndex>0</GridPane.columnIndex>
+                                <GridPane.rowSpan>6</GridPane.rowSpan>
+                                <image>
+                                    <Image url="@/res/android.png"/>
+                                </image>
+                            </ImageView>
+
+                            <Label styleClass="labelMain" text="">
+                                <GridPane.rowIndex>0</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </Label>
+
+                            <Label fx:id="firstName" styleClass="labelMain" text="First Name: Marko">
+                                <GridPane.halignment>LEFT</GridPane.halignment>
+                                <GridPane.rowIndex>2</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </Label>
+
+                            <Label fx:id="lastName" styleClass="labelMain" text="Last Name: Markovic">
+                                <GridPane.halignment>LEFT</GridPane.halignment>
+                                <GridPane.rowIndex>3</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </Label>
+
+                            <Label styleClass="labelMain" text="">
+                                <GridPane.rowIndex>4</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </Label>
+                        </GridPane>
+
+                        <GridPane alignment="CENTER_LEFT" hgap="20" vgap="10">
+                            <VBox.margin>
+                                <Insets top="20.0"/>
+                            </VBox.margin>
+
+                            <Label fx:id="address" styleClass="labelMain" text="Address: Cara Dusana 10">
+                                <GridPane.halignment>LEFT</GridPane.halignment>
+                                <GridPane.rowIndex>0</GridPane.rowIndex>
+                                <GridPane.columnIndex>0</GridPane.columnIndex>
+                            </Label>
+
+                            <Label fx:id="phoneNumber" styleClass="labelMain" text="Phone: 061/123-4567">
+                                <GridPane.halignment>LEFT</GridPane.halignment>
+                                <GridPane.rowIndex>1</GridPane.rowIndex>
+                                <GridPane.columnIndex>0</GridPane.columnIndex>
+                            </Label>
+
+                            <Button minHeight="40" minWidth="172" onAction="#edit" styleClass="button" text="Edit">
+                                <GridPane.rowIndex>0</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </Button>
+
+                            <Button minHeight="40" minWidth="172" onAction="#changePassword" styleClass="button"
+                                    text="Change Password">
+                                <GridPane.rowIndex>1</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </Button>
+                        </GridPane>
+                    </VBox>
+                </Group>
+
+                <Button minHeight="40" minWidth="172" onAction="#logout" styleClass="button" text="Log Out">
+                    <StackPane.alignment>BOTTOM_RIGHT</StackPane.alignment>
+                    <StackPane.margin>
+                        <Insets bottom="10.0" right="10.0"/>
+                    </StackPane.margin>
+                </Button>
+            </StackPane>
+        </Group>
+    </center>
+    <bottom>
+        <VBox minHeight="25"/>
+    </bottom>
+</BorderPane>

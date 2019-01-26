@@ -19,7 +19,7 @@ public class LoginController {
     @FXML
     PasswordField password;
 
-    public void login(ActionEvent actionEvent) {
+    public void login(ActionEvent actionEvent) throws IOException {
         if (username.getText().isEmpty() || password.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.NONE, "Please enter username and password.",
                     ButtonType.OK);
@@ -36,7 +36,17 @@ public class LoginController {
             alert.setTitle("Error");
             alert.showAndWait();
         } else if (user.getPassword().equals(password.getText())) {
-            System.out.println("SUCCESS");
+            if(user.getType().equals(UserType.Worker)) {
+                Alert alert = new Alert(Alert.AlertType.NONE,
+                        "Only clients can use desktop app.", ButtonType.OK);
+                alert.setTitle("Error");
+                alert.showAndWait();
+                return;
+            }
+            ProfileController.setUser(user);
+            Parent root = FXMLLoader.load(getClass().getResource("profile.fxml"));
+            Main.PRIMARY_STAGE.setScene(new Scene(root, 800, 600));
+            Main.PRIMARY_STAGE.show();
         } else {
             Alert alert = new Alert(Alert.AlertType.NONE,"The password you’ve entered is incorrect.",
                     ButtonType.OK);

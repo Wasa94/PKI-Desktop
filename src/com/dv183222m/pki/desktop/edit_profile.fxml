@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+
+<?import javafx.scene.control.TextField?>
+<BorderPane style="-fx-background-color: #ECF0F1;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.172-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dv183222m.pki.desktop.EditProfileController">
+    <top>
+        <AnchorPane minHeight="75">
+            <Label style="-fx-font-weight: bold; -fx-text-fill: #2C3E50; -fx-font-size: 25px;" text="Welcome, Mare"
+                   fx:id="username" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
+            </Label>
+        </AnchorPane>
+    </top>
+
+    <center>
+        <Group>
+            <StackPane>
+                <Rectangle fill="#3498DB" height="500" width="700">
+                </Rectangle>
+
+                <Group StackPane.alignment="TOP_CENTER">
+                    <StackPane.margin>
+                        <Insets top="20.0"/>
+                    </StackPane.margin>
+                    <VBox>
+                        <GridPane hgap="20" vgap="10">
+                            <ImageView fx:id="image">
+                                <GridPane.rowIndex>0</GridPane.rowIndex>
+                                <GridPane.columnIndex>0</GridPane.columnIndex>
+                                <GridPane.rowSpan>6</GridPane.rowSpan>
+                                <image>
+                                    <Image url="@/res/android.png"/>
+                                </image>
+                            </ImageView>
+
+                            <Label styleClass="labelMain" text="">
+                                <GridPane.rowIndex>0</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </Label>
+
+                            <Label styleClass="labelMain" text="First Name: ">
+                                <GridPane.halignment>LEFT</GridPane.halignment>
+                                <GridPane.rowIndex>2</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </Label>
+                            <TextField fx:id="firstName" text="Marko" minWidth="254" minHeight="40"
+                                       style="-fx-font-size: 18px;">
+                                <GridPane.halignment>LEFT</GridPane.halignment>
+                                <GridPane.rowIndex>2</GridPane.rowIndex>
+                                <GridPane.columnIndex>2</GridPane.columnIndex>
+                            </TextField>
+
+                            <Label styleClass="labelMain" text="Last Name: ">
+                                <GridPane.halignment>LEFT</GridPane.halignment>
+                                <GridPane.rowIndex>3</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </Label>
+                            <TextField fx:id="lastName" text="Markovic" minWidth="254" minHeight="40"
+                                       style="-fx-font-size: 18px;">
+                                <GridPane.halignment>LEFT</GridPane.halignment>
+                                <GridPane.rowIndex>3</GridPane.rowIndex>
+                                <GridPane.columnIndex>2</GridPane.columnIndex>
+                            </TextField>
+
+                            <Label styleClass="labelMain" text="">
+                                <GridPane.rowIndex>4</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </Label>
+                        </GridPane>
+
+                        <GridPane alignment="CENTER_LEFT" hgap="20" vgap="10">
+                            <VBox.margin>
+                                <Insets top="20.0"/>
+                            </VBox.margin>
+
+                            <Label styleClass="labelMain" text="Address: ">
+                                <GridPane.halignment>LEFT</GridPane.halignment>
+                                <GridPane.rowIndex>0</GridPane.rowIndex>
+                                <GridPane.columnIndex>0</GridPane.columnIndex>
+                            </Label>
+                            <TextField fx:id="address" text="Cara Dusana 10" minWidth="254" minHeight="40"
+                                       style="-fx-font-size: 18px;">
+                                <GridPane.halignment>LEFT</GridPane.halignment>
+                                <GridPane.rowIndex>0</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </TextField>
+
+                            <Label styleClass="labelMain" text="Phone: ">
+                                <GridPane.halignment>LEFT</GridPane.halignment>
+                                <GridPane.rowIndex>1</GridPane.rowIndex>
+                                <GridPane.columnIndex>0</GridPane.columnIndex>
+                            </Label>
+                            <TextField fx:id="phoneNumber" text="061/123-4567" minWidth="254" minHeight="40"
+                                       style="-fx-font-size: 18px;">
+                                <GridPane.halignment>LEFT</GridPane.halignment>
+                                <GridPane.rowIndex>1</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </TextField>
+
+                            <Button minHeight="40" minWidth="172" onAction="#save" styleClass="button" text="Save">
+                                <GridPane.rowIndex>0</GridPane.rowIndex>
+                                <GridPane.columnIndex>2</GridPane.columnIndex>
+                            </Button>
+
+                            <Button minHeight="40" minWidth="172" onAction="#cancel" styleClass="button"
+                                    text="Cancel">
+                                <GridPane.rowIndex>1</GridPane.rowIndex>
+                                <GridPane.columnIndex>2</GridPane.columnIndex>
+                            </Button>
+                        </GridPane>
+                    </VBox>
+                </Group>
+            </StackPane>
+        </Group>
+    </center>
+    <bottom>
+        <VBox minHeight="25"/>
+    </bottom>
+</BorderPane>
