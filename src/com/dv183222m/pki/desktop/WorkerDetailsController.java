@@ -74,8 +74,7 @@ public class WorkerDetailsController {
     }
 
     public void back(ActionEvent actionEvent) throws IOException {
-        String page = ProfileController.getUser() == null ? "workers.fxml" : "workers_signed.fxml";
-        Parent root = FXMLLoader.load(getClass().getResource(page));
+        Parent root = FXMLLoader.load(getClass().getResource("workers.fxml"));
         Main.PRIMARY_STAGE.setScene(new Scene(root, 800, 600));
         Main.PRIMARY_STAGE.show();
     }

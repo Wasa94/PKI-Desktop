@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import org.controlsfx.control.CheckComboBox;
 import org.controlsfx.control.RangeSlider;
@@ -33,13 +34,19 @@ public class WorkersController {
     @FXML CheckBox checkBox;
 
     @FXML Label username;
+    @FXML AnchorPane topSigned;
+    @FXML AnchorPane topNotSigned;
 
     private List<WorkerAdapter> data;
 
     @FXML
     public void initialize() {
-        if (username != null && ProfileController.getUser() != null) {
+        if (ProfileController.getUser() != null) {
             username.setText("Welcome, " + ProfileController.getUser().getUsername());
+            topSigned.setVisible(true);
+            checkBox.setVisible(true);
+        } else {
+            topNotSigned.setVisible(true);
         }
 
         TableColumn nameCol = new TableColumn("Name");

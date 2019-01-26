@@ -66,7 +66,7 @@ public class ProfileController {
     }
 
     public void workers(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("workers_signed.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("workers.fxml"));
         Main.PRIMARY_STAGE.setScene(new Scene(root, 800, 600));
         Main.PRIMARY_STAGE.show();
     }
