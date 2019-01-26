@@ -1,7 +1,6 @@
 package com.dv183222m.pki.desktop;
 
 import com.dv183222m.pki.data.User;
-import com.dv183222m.pki.data.WorkerType;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -48,6 +47,7 @@ public class ProfileController {
     }
 
     public void logout(ActionEvent actionEvent) throws IOException {
+        user = null;
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
         Main.PRIMARY_STAGE.setScene(new Scene(root, 800, 600));
         Main.PRIMARY_STAGE.show();
@@ -58,6 +58,15 @@ public class ProfileController {
 
     public void edit(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("edit_profile.fxml"));
+        Main.PRIMARY_STAGE.setScene(new Scene(root, 800, 600));
+        Main.PRIMARY_STAGE.show();
+    }
+
+    public void requests(ActionEvent actionEvent) throws IOException {
+    }
+
+    public void workers(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("workers_signed.fxml"));
         Main.PRIMARY_STAGE.setScene(new Scene(root, 800, 600));
         Main.PRIMARY_STAGE.show();
     }

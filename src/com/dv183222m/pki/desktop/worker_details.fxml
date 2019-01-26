@@ -23,7 +23,7 @@
                 </Label>
             </HBox>
             <Button minHeight="40" styleClass="button" onAction="#login" text="Login" AnchorPane.rightAnchor="50.0"
-                    AnchorPane.topAnchor="17.5">
+                    AnchorPane.topAnchor="17.5" visible="false" fx:id="login">
             </Button>
         </AnchorPane>
     </top>
@@ -108,12 +108,23 @@
                     </VBox>
                 </Group>
 
-                <Button minHeight="40" minWidth="172" styleClass="button" onAction="#back" text="Back">
+                <Group>
                     <StackPane.alignment>BOTTOM_RIGHT</StackPane.alignment>
                     <StackPane.margin>
                         <Insets bottom="10.0" right="10.0"/>
                     </StackPane.margin>
-                </Button>
+                    <GridPane hgap="10">
+                        <Button minHeight="40" minWidth="172" styleClass="button" text="Create Request" visible="false"
+                                fx:id="createRequest">
+                            <GridPane.rowIndex>0</GridPane.rowIndex>
+                            <GridPane.columnIndex>0</GridPane.columnIndex>
+                        </Button>
+                        <Button minHeight="40" minWidth="172" styleClass="button" onAction="#back" text="Back">
+                            <GridPane.rowIndex>0</GridPane.rowIndex>
+                            <GridPane.columnIndex>1</GridPane.columnIndex>
+                        </Button>
+                    </GridPane>
+                </Group>
             </StackPane>
         </Group>
     </center>

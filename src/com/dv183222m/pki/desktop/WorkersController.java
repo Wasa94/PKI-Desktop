@@ -30,11 +30,18 @@ public class WorkersController {
     @FXML TextField lastName;
     @FXML Button details;
     @FXML Pagination pagination;
+    @FXML CheckBox checkBox;
+
+    @FXML Label username;
 
     private List<WorkerAdapter> data;
 
     @FXML
     public void initialize() {
+        if (username != null && ProfileController.getUser() != null) {
+            username.setText("Welcome, " + ProfileController.getUser().getUsername());
+        }
+
         TableColumn nameCol = new TableColumn("Name");
         TableColumn typesOfWorkCol = new TableColumn("Types of work");
         TableColumn experienceCol = new TableColumn("Experience");
@@ -152,10 +159,26 @@ public class WorkersController {
             workerTypes.add(WorkerType.valueOf(type.toString()));
         }
 
-        List<Worker> workers = DbContext.INSTANCE.getWorkers(firstName.getText(), lastName.getText(), workerTypes,
-                (float) rangeSliderRating.getLowValue(), (float) rangeSliderRating.getHighValue(),
-                (float) rangeSliderExp.getLowValue(), (float) rangeSliderExp.getHighValue());
+        List<Worker> workers;
+        if (ProfileController.getUser() == null || !checkBox.isSelected()) {
+            workers = DbContext.INSTANCE.getWorkers(firstName.getText(), lastName.getText(), workerTypes,
+                    (float) rangeSliderRating.getLowValue(), (float) rangeSliderRating.getHighValue(),
+                    (float) rangeSliderExp.getLowValue(), (float) rangeSliderExp.getHighValue());
+        } else {
+            workers = DbContext.INSTANCE.getWorkersLogedin(firstName.getText(), lastName.getText(), workerTypes,
+                    (float) rangeSliderRating.getLowValue(), (float) rangeSliderRating.getHighValue(),
+                    (float) rangeSliderExp.getLowValue(), (float) rangeSliderExp.getHighValue(), checkBox.isSelected(), ProfileController.getUser().getUsername());
+        }
 
         populateTable(workers);
+    }
+
+    public void profile(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("profile.fxml"));
+        Main.PRIMARY_STAGE.setScene(new Scene(root, 800, 600));
+        Main.PRIMARY_STAGE.show();
+    }
+
+    public void requests(ActionEvent actionEvent) {
     }
 }

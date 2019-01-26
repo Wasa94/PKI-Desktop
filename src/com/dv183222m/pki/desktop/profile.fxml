@@ -13,24 +13,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 
+<?import org.controlsfx.control.SegmentedButton?>
+<?import javafx.scene.control.ToggleButton?>
 <BorderPane style="-fx-background-color: #ECF0F1;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.172-ea"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dv183222m.pki.desktop.ProfileController">
     <top>
         <AnchorPane minHeight="75">
-            <GridPane AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="30.0">
-                <Button styleClass="button" text="Profile">
-                    <GridPane.rowIndex>0</GridPane.rowIndex>
-                    <GridPane.columnIndex>0</GridPane.columnIndex>
-                </Button>
-                <Button styleClass="button" text="Workers">
-                    <GridPane.rowIndex>0</GridPane.rowIndex>
-                    <GridPane.columnIndex>1</GridPane.columnIndex>
-                </Button>
-                <Button styleClass="button" text="Requests">
-                    <GridPane.rowIndex>0</GridPane.rowIndex>
-                    <GridPane.columnIndex>2</GridPane.columnIndex>
-                </Button>
-            </GridPane>
+            <SegmentedButton AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="30.0">
+                <buttons>
+                    <ToggleButton styleClass="button" text="Profile" selected="true"/>
+                    <ToggleButton styleClass="button" text="Workers" onAction="#workers"/>
+                    <ToggleButton styleClass="button" text="Requests" onAction="#requests"/>
+                </buttons>
+            </SegmentedButton>
 
             <Label fx:id="username" style="-fx-font-weight: bold; -fx-text-fill: #2C3E50; -fx-font-size: 25px;"
                    text="Welcome, Mare" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">

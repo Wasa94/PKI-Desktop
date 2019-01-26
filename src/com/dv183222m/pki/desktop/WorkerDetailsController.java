@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -27,8 +28,17 @@ public class WorkerDetailsController {
     @FXML Rating rating;
     @FXML Label experience;
 
+    @FXML Button login;
+    @FXML Button createRequest;
+
     @FXML
     public void initialize() {
+        if(ProfileController.getUser() == null) {
+            login.setVisible(true);
+        } else {
+            createRequest.setVisible(true);
+        }
+
         firstName.setText("First Name: " + worker.getFirstName());
         lastName.setText("Last Name: " + worker.getLastName());
         address.setText("Address: " + worker.getAddress());
@@ -64,7 +74,8 @@ public class WorkerDetailsController {
     }
 
     public void back(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("workers.fxml"));
+        String page = ProfileController.getUser() == null ? "workers.fxml" : "workers_signed.fxml";
+        Parent root = FXMLLoader.load(getClass().getResource(page));
         Main.PRIMARY_STAGE.setScene(new Scene(root, 800, 600));
         Main.PRIMARY_STAGE.show();
     }

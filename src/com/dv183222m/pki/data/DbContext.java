@@ -77,6 +77,17 @@ public class DbContext {
         }});
         users.get("Zika").setImage("src/res/android.png");
 
+        users.put("Milos", new User("Milos", "Milosevic", UserType.Worker, "Pozeska 60", "062/111-456", "Milos", "milos123"));
+        worker = users.get("Milos").getWorker();
+        worker.setExperience(4);
+        worker.setRating(4.7f);
+        worker.setTypes(new ArrayList<WorkerType>() {{
+            add(WorkerType.Electrician);
+            add(WorkerType.Carpenter);
+            add(WorkerType.Plumber);
+        }});
+        users.get("Milos").setImage("src/res/android.png");
+
     }
 
     private Map<Integer, Request> requests;
