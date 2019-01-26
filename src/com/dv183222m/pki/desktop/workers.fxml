@@ -14,6 +14,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<?import javafx.scene.control.Pagination?>
 <BorderPane style="-fx-background-color: #ECF0F1;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.172-ea"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dv183222m.pki.desktop.WorkersController">
     <top>
@@ -112,11 +113,15 @@
                         </GridPane>
                     </VBox>
 
-                    <TableView fx:id="table" maxWidth="600" minWidth="600" maxHeight="170">
+                    <Pagination fx:id="pagination">
                         <GridPane.rowIndex>1</GridPane.rowIndex>
                         <GridPane.columnIndex>0</GridPane.columnIndex>
                         <GridPane.halignment>CENTER</GridPane.halignment>
-                    </TableView>
+                        <fx:define>
+                            <TableView fx:id="table" maxWidth="600" minWidth="600" maxHeight="170">
+                            </TableView>
+                        </fx:define>
+                    </Pagination>
 
                     <Button text="Details" onAction="#details" minWidth="172" minHeight="40" styleClass="button"
                             disable="true" fx:id="details">

@@ -8,13 +8,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
 import org.controlsfx.control.CheckComboBox;
 import org.controlsfx.control.RangeSlider;
 
@@ -30,6 +29,9 @@ public class WorkersController {
     @FXML TextField firstName;
     @FXML TextField lastName;
     @FXML Button details;
+    @FXML Pagination pagination;
+
+    private List<WorkerAdapter> data;
 
     @FXML
     public void initialize() {
@@ -66,6 +68,21 @@ public class WorkersController {
         });
     }
 
+    private Node createPage(int pageIndex) {
+
+        int rowsPerPage = 5;
+
+        int fromIndex = pageIndex * rowsPerPage;
+        int toIndex = Math.min(fromIndex + rowsPerPage, data.size());
+        int carry = (data.size() % rowsPerPage) == 0 ? 0 : 1;
+        int numOfPages = (data.size() - data.size() % rowsPerPage) / rowsPerPage + carry;
+        pagination.setPageCount(numOfPages);
+
+        table.setItems(FXCollections.observableArrayList(data.subList(fromIndex, toIndex)));
+
+        return new BorderPane(table);
+    }
+
     public void login(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
         Main.PRIMARY_STAGE.setScene(new Scene(root, 800, 600));
@@ -96,14 +113,12 @@ public class WorkersController {
     }
 
     private void populateTable(List<Worker> workerList) {
-        List<WorkerAdapter> workerAdapters = new ArrayList<>();
+        data = new ArrayList<>();
         for (Worker worker : workerList) {
-            workerAdapters.add(new WorkerAdapter(worker));
+            data.add(new WorkerAdapter(worker));
         }
 
-        final ObservableList<WorkerAdapter> data = FXCollections.observableArrayList(workerAdapters);
-
-        table.setItems(data);
+        pagination.setPageFactory(this::createPage);
     }
 
     private void initCheckComboBox() {
@@ -118,11 +133,11 @@ public class WorkersController {
     }
 
     public void details(ActionEvent actionEvent) throws IOException {
-        if(table.getSelectionModel() == null || table.getSelectionModel().getSelectedItem() == null) {
+        if (table.getSelectionModel() == null || table.getSelectionModel().getSelectedItem() == null) {
             return;
         }
 
-        WorkerAdapter workerAdapter = (WorkerAdapter)table.getSelectionModel().getSelectedItem();
+        WorkerAdapter workerAdapter = (WorkerAdapter) table.getSelectionModel().getSelectedItem();
 
         WorkerDetailsController.setWorker(DbContext.INSTANCE.getUser(workerAdapter.getUsername()));
 
@@ -133,13 +148,13 @@ public class WorkersController {
 
     public void filter(ActionEvent actionEvent) {
         List<WorkerType> workerTypes = new ArrayList<>();
-        for (Object type: checkComboBox.getCheckModel().getCheckedItems()) {
+        for (Object type : checkComboBox.getCheckModel().getCheckedItems()) {
             workerTypes.add(WorkerType.valueOf(type.toString()));
         }
 
         List<Worker> workers = DbContext.INSTANCE.getWorkers(firstName.getText(), lastName.getText(), workerTypes,
-                (float)rangeSliderRating.getLowValue(), (float)rangeSliderRating.getHighValue(),
-                (float)rangeSliderExp.getLowValue(), (float)rangeSliderExp.getHighValue());
+                (float) rangeSliderRating.getLowValue(), (float) rangeSliderRating.getHighValue(),
+                (float) rangeSliderExp.getLowValue(), (float) rangeSliderExp.getHighValue());
 
         populateTable(workers);
     }
