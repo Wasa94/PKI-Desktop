@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -28,6 +29,7 @@ public class WorkersController {
     @FXML CheckComboBox checkComboBox;
     @FXML TextField firstName;
     @FXML TextField lastName;
+    @FXML Button details;
 
     @FXML
     public void initialize() {
@@ -54,6 +56,20 @@ public class WorkersController {
 
         initMultiRanges();
         initCheckComboBox();
+
+        table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                details.setDisable(false);
+            } else {
+                details.setDisable(true);
+            }
+        });
+    }
+
+    public void login(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Main.PRIMARY_STAGE.setScene(new Scene(root, 800, 600));
+        Main.PRIMARY_STAGE.show();
     }
 
     private void initMultiRanges() {

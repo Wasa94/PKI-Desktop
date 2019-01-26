@@ -9,16 +9,23 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.geometry.Insets?>
-
 <?import org.controlsfx.control.RangeSlider?>
 <?import org.controlsfx.control.CheckComboBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.AnchorPane?>
+
 <BorderPane style="-fx-background-color: #ECF0F1;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.172-ea"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dv183222m.pki.desktop.WorkersController">
     <top>
-        <VBox minHeight="75" alignment="CENTER">
-            <Label style="-fx-font-weight: bold; -fx-text-fill: #2C3E50; -fx-font-size: 25px;" text="WORKERS">
-            </Label>
-        </VBox>
+        <AnchorPane>
+            <HBox alignment="CENTER" minHeight="75" minWidth="800">
+                <Label style="-fx-font-weight: bold; -fx-text-fill: #2C3E50; -fx-font-size: 25px;" text="WORKERS">
+                </Label>
+            </HBox>
+            <Button onAction="#login" minHeight="40" styleClass="button" text="Login" AnchorPane.rightAnchor="50.0"
+                    AnchorPane.topAnchor="17.5">
+            </Button>
+        </AnchorPane>
     </top>
 
     <center>
@@ -46,7 +53,8 @@
                                 <GridPane.columnIndex>0</GridPane.columnIndex>
                                 <GridPane.halignment>RIGHT</GridPane.halignment>
                             </Label>
-                            <TextField fx:id="firstName" maxHeight="26" maxWidth="165" minWidth="165" style="-fx-font-size: 14px;">
+                            <TextField fx:id="firstName" maxHeight="26" maxWidth="165" minWidth="165"
+                                       style="-fx-font-size: 14px;">
                                 <GridPane.rowIndex>0</GridPane.rowIndex>
                                 <GridPane.columnIndex>1</GridPane.columnIndex>
                             </TextField>
@@ -56,7 +64,8 @@
                                 <GridPane.columnIndex>0</GridPane.columnIndex>
                                 <GridPane.halignment>RIGHT</GridPane.halignment>
                             </Label>
-                            <TextField fx:id="lastName" maxHeight="26" maxWidth="165" minWidth="165" style="-fx-font-size: 14px;">
+                            <TextField fx:id="lastName" maxHeight="26" maxWidth="165" minWidth="165"
+                                       style="-fx-font-size: 14px;">
                                 <GridPane.rowIndex>1</GridPane.rowIndex>
                                 <GridPane.columnIndex>1</GridPane.columnIndex>
                             </TextField>
@@ -109,7 +118,8 @@
                         <GridPane.halignment>CENTER</GridPane.halignment>
                     </TableView>
 
-                    <Button text="Details" onAction="#details" minWidth="172" minHeight="40" styleClass="button">
+                    <Button text="Details" onAction="#details" minWidth="172" minHeight="40" styleClass="button"
+                            disable="true" fx:id="details">
                         <GridPane.rowIndex>2</GridPane.rowIndex>
                         <GridPane.columnIndex>0</GridPane.columnIndex>
                     </Button>
