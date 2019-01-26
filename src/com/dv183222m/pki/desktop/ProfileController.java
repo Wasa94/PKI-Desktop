@@ -63,6 +63,9 @@ public class ProfileController {
     }
 
     public void requests(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("requests.fxml"));
+        Main.PRIMARY_STAGE.setScene(new Scene(root, 800, 600));
+        Main.PRIMARY_STAGE.show();
     }
 
     public void workers(ActionEvent actionEvent) throws IOException {

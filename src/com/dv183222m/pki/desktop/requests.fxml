@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import org.controlsfx.control.SegmentedButton?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.CheckBox?>
+<?import org.controlsfx.control.RangeSlider?>
+<?import org.controlsfx.control.CheckComboBox?>
+<?import javafx.scene.control.TextField?>
+
+<?import javafx.scene.control.DatePicker?>
+<BorderPane style="-fx-background-color: #ECF0F1;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.172-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dv183222m.pki.desktop.RequestsController">
+    <top>
+        <AnchorPane minHeight="75">
+            <SegmentedButton AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="30.0">
+                <buttons>
+                    <ToggleButton styleClass="button" text="Profile" onAction="#profile"/>
+                    <ToggleButton styleClass="button" text="Workers" onAction="#workers"/>
+                    <ToggleButton styleClass="button" text="Requests" selected="true"/>
+                </buttons>
+            </SegmentedButton>
+
+            <Label fx:id="username" style="-fx-font-weight: bold; -fx-text-fill: #2C3E50; -fx-font-size: 25px;"
+                   text="Welcome, Mare" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
+            </Label>
+        </AnchorPane>
+    </top>
+
+    <center>
+        <Group>
+            <StackPane>
+
+                <Rectangle fill="#3498DB" height="500" width="700">
+                </Rectangle>
+
+                <GridPane alignment="CENTER" vgap="20">
+                    <VBox style="-fx-background-color:#2980B9;">
+                        <padding>
+                            <Insets>
+                                <bottom>10</bottom>
+                                <top>10</top>
+                                <left>10</left>
+                                <right>10</right>
+                            </Insets>
+                        </padding>
+                        <GridPane.rowIndex>0</GridPane.rowIndex>
+                        <GridPane.columnIndex>0</GridPane.columnIndex>
+                        <GridPane vgap="10" hgap="5">
+                            <Label styleClass="labelFilter" text="Worker:">
+                                <GridPane.rowIndex>0</GridPane.rowIndex>
+                                <GridPane.columnIndex>0</GridPane.columnIndex>
+                                <GridPane.halignment>RIGHT</GridPane.halignment>
+                            </Label>
+                            <TextField fx:id="worker" maxHeight="26" maxWidth="165" minWidth="165"
+                                       style="-fx-font-size: 14px;">
+                                <GridPane.rowIndex>0</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </TextField>
+
+                            <Label styleClass="labelFilter" text="Status:">
+                                <GridPane.rowIndex>1</GridPane.rowIndex>
+                                <GridPane.columnIndex>0</GridPane.columnIndex>
+                                <GridPane.halignment>RIGHT</GridPane.halignment>
+                            </Label>
+                            <CheckComboBox fx:id="status" maxHeight="26" maxWidth="165" minWidth="165">
+                                <GridPane.rowIndex>1</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </CheckComboBox>
+
+                            <Label styleClass="labelFilter" text="Type:">
+                                <GridPane.rowIndex>2</GridPane.rowIndex>
+                                <GridPane.columnIndex>0</GridPane.columnIndex>
+                                <GridPane.halignment>RIGHT</GridPane.halignment>
+                            </Label>
+                            <CheckComboBox fx:id="types" maxHeight="26" maxWidth="165" minWidth="165">
+                                <GridPane.rowIndex>2</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </CheckComboBox>
+
+                            <Label styleClass="labelFilter" text="Price:">
+                                <GridPane.rowIndex>0</GridPane.rowIndex>
+                                <GridPane.columnIndex>2</GridPane.columnIndex>
+                                <GridPane.halignment>RIGHT</GridPane.halignment>
+                            </Label>
+                            <RangeSlider fx:id="rangeSliderPrice"  maxHeight="26" maxWidth="170" minWidth="170"
+                                         styleClass=".range-slider .axis, .range-slider .range-bar">
+                                <GridPane.rowIndex>0</GridPane.rowIndex>
+                                <GridPane.columnIndex>3</GridPane.columnIndex>
+                            </RangeSlider>
+
+                            <Label styleClass="labelFilter" text="From:">
+                                <GridPane.rowIndex>1</GridPane.rowIndex>
+                                <GridPane.columnIndex>2</GridPane.columnIndex>
+                                <GridPane.halignment>RIGHT</GridPane.halignment>
+                            </Label>
+                            <DatePicker fx:id="dateFrom"  maxHeight="26" maxWidth="170" minWidth="170">
+                                <GridPane.rowIndex>1</GridPane.rowIndex>
+                                <GridPane.columnIndex>3</GridPane.columnIndex>
+                            </DatePicker>
+
+                            <Label styleClass="labelFilter" text="To:">
+                                <GridPane.rowIndex>2</GridPane.rowIndex>
+                                <GridPane.columnIndex>2</GridPane.columnIndex>
+                                <GridPane.halignment>RIGHT</GridPane.halignment>
+                            </Label>
+                            <DatePicker fx:id="dateTo"  maxHeight="26" maxWidth="170" minWidth="170">
+                                <GridPane.rowIndex>2</GridPane.rowIndex>
+                                <GridPane.columnIndex>3</GridPane.columnIndex>
+                            </DatePicker>
+
+                            <Button text="Filter" onAction="#filter" minWidth="172" minHeight="40"
+                                    styleClass="button">
+                                <GridPane.rowIndex>0</GridPane.rowIndex>
+                                <GridPane.columnIndex>4</GridPane.columnIndex>
+                                <GridPane.halignment>CENTER</GridPane.halignment>
+                                <GridPane.valignment>CENTER</GridPane.valignment>
+                                <GridPane.rowSpan>3</GridPane.rowSpan>
+                            </Button>
+                        </GridPane>
+                    </VBox>
+
+                    <Pagination fx:id="pagination">
+                        <GridPane.rowIndex>1</GridPane.rowIndex>
+                        <GridPane.columnIndex>0</GridPane.columnIndex>
+                        <GridPane.halignment>CENTER</GridPane.halignment>
+                        <fx:define>
+                            <TableView fx:id="table" maxWidth="630" minWidth="630" maxHeight="170">
+                            </TableView>
+                        </fx:define>
+                    </Pagination>
+
+                    <Button text="Details" onAction="#details" minWidth="172" minHeight="40" styleClass="button"
+                            disable="true" fx:id="details">
+                        <GridPane.rowIndex>2</GridPane.rowIndex>
+                        <GridPane.columnIndex>0</GridPane.columnIndex>
+                    </Button>
+                </GridPane>
+            </StackPane>
+        </Group>
+    </center>
+    <bottom>
+        <VBox minHeight="25"/>
+    </bottom>
+</BorderPane>
