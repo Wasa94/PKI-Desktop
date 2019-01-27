@@ -9,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
@@ -53,7 +55,19 @@ public class ProfileController {
         Main.PRIMARY_STAGE.show();
     }
 
-    public void changePassword(ActionEvent actionEvent) {
+    public void changePassword(ActionEvent actionEvent) throws IOException {
+        final Stage dialog = new Stage();
+        dialog.initModality(Modality.APPLICATION_MODAL);
+        dialog.initOwner(Main.PRIMARY_STAGE);
+
+        Parent root = FXMLLoader.load(getClass().getResource("change_password.fxml"));
+        dialog.setTitle("Change Password");
+        dialog.sizeToScene();
+        dialog.setScene(new Scene(root));
+        dialog.setResizable(false);
+        dialog.show();
+
+        ChangePasswordController.CHANGE_PASSWORD = dialog;
     }
 
     public void edit(ActionEvent actionEvent) throws IOException {
