@@ -61,7 +61,7 @@ public class ChangePasswordController {
         user.setPassword(newPass);
 
         Alert alert = new Alert(Alert.AlertType.NONE, "Password changed.", ButtonType.OK);
-        alert.setTitle("Error");
+        alert.setTitle("Info");
         alert.show();
 
 

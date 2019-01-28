@@ -109,7 +109,7 @@ public class DbContext {
         from.set(2018, Calendar.DECEMBER, 28);
         to.set(2018, Calendar.DECEMBER, 30);
         request = new Request(users.get("Vasa"), users.get("Mare"), "Čukarica", "Mladena Mitrića", from.getTime(), to.getTime(), WorkerType.Electrician, false,6000, "Promena instalacija.");
-        request.setStatus(RequestStatus.Ongoing);
+        request.setStatus(RequestStatus.Successful);
         requests.put(request.getId(), request);
 
         from.set(2019, Calendar.JANUARY, 28);
