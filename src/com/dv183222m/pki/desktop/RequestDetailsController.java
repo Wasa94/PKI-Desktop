@@ -14,6 +14,8 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import org.controlsfx.control.Rating;
 
 import java.io.IOException;
@@ -84,8 +86,23 @@ public class RequestDetailsController {
 
     }
 
-    public void review(MouseEvent mouseEvent) {
+    public void review(MouseEvent mouseEvent) throws IOException {
+        if(!request.getDetails().isEmpty() && request.getRating() != 0 ) {
+            return;
+        }
 
+        final Stage dialog = new Stage();
+        dialog.initModality(Modality.APPLICATION_MODAL);
+        dialog.initOwner(Main.PRIMARY_STAGE);
+
+        Parent root = FXMLLoader.load(getClass().getResource("request_review.fxml"));
+        dialog.setTitle("Request Review");
+        dialog.sizeToScene();
+        dialog.setScene(new Scene(root));
+        dialog.setResizable(false);
+        dialog.show();
+
+        RequestReviewController.REQUEST_REVIEW = dialog;
     }
 
     public void cancelRequest(ActionEvent actionEvent)  throws IOException {

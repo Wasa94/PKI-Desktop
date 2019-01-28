@@ -84,7 +84,7 @@
                             <StackPane fx:id="cardReview" visible="false">
                                 <Rectangle fill="#2980B9" height="200" width="500" onMouseClicked="#review"/>
 
-                                <Label styleClass="labelMain" text="Review">
+                                <Label styleClass="labelMain" text="Review" onMouseClicked="#review">
                                     <StackPane.alignment>TOP_LEFT</StackPane.alignment>
                                     <StackPane.margin>
                                         <Insets top="5" left="5"/>
@@ -92,7 +92,7 @@
                                 </Label>
 
                                 <Label fx:id="review" styleClass="labelFilter" wrapText="true" maxWidth="490"
-                                       maxHeight="100"
+                                       maxHeight="100" onMouseClicked="#review"
                                        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis nec arcu sit amet condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis nec arcu sit amet condimentum.">
                                     <StackPane.alignment>CENTER</StackPane.alignment>
                                     <StackPane.margin>
