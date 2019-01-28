@@ -82,8 +82,19 @@ public class RequestDetailsController {
         Main.PRIMARY_STAGE.show();
     }
 
-    public void share(ActionEvent actionEvent) {
+    public void share(ActionEvent actionEvent) throws IOException {
+        final Stage dialog = new Stage();
+        dialog.initModality(Modality.APPLICATION_MODAL);
+        dialog.initOwner(Main.PRIMARY_STAGE);
 
+        Parent root = FXMLLoader.load(getClass().getResource("share_request.fxml"));
+        dialog.setTitle("Share Worker");
+        dialog.sizeToScene();
+        dialog.setScene(new Scene(root));
+        dialog.setResizable(false);
+        dialog.show();
+
+        ShareRequestController.SHARE_REQUEST = dialog;
     }
 
     public void review(MouseEvent mouseEvent) throws IOException {
