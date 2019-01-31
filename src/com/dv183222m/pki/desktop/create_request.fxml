@@ -1,0 +1,145 @@
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.Pane?>
+<BorderPane style="-fx-background-color: #ECF0F1;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.172-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dv183222m.pki.desktop.CreateRequestController">
+    <top>
+        <VBox minHeight="75" alignment="CENTER">
+            <Label style="-fx-font-weight: bold; -fx-text-fill: #2C3E50; -fx-font-size: 25px;" text="CREATE REQUEST">
+            </Label>
+        </VBox>
+    </top>
+
+    <center>
+        <Group>
+            <StackPane>
+                <Rectangle fill="#3498DB" height="500" width="700">
+                </Rectangle>
+                <GridPane alignment="CENTER" hgap="10" vgap="15">
+                    <Pane minWidth="360" maxWidth="360" minHeight="340" maxHeight="340">
+                        <GridPane.rowIndex>0</GridPane.rowIndex>
+                        <GridPane.columnIndex>0</GridPane.columnIndex>
+                        <GridPane.halignment>CENTER</GridPane.halignment>
+                        <GridPane.columnSpan>2</GridPane.columnSpan>
+                        <GridPane alignment="CENTER" hgap="10" vgap="10">
+                            <Label styleClass="labelMain" text="Type:">
+                                <GridPane.rowIndex>0</GridPane.rowIndex>
+                                <GridPane.columnIndex>0</GridPane.columnIndex>
+                                <GridPane.halignment>RIGHT</GridPane.halignment>
+                            </Label>
+                            <ComboBox fx:id="type" minHeight="40" minWidth="254" style="-fx-font-size: 18px;">
+                                <GridPane.rowIndex>0</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </ComboBox>
+
+                            <Label styleClass="labelMain" text="Payment:">
+                                <GridPane.rowIndex>1</GridPane.rowIndex>
+                                <GridPane.columnIndex>0</GridPane.columnIndex>
+                                <GridPane.halignment>RIGHT</GridPane.halignment>
+                            </Label>
+                            <ComboBox fx:id="payment" minHeight="40" minWidth="254" style="-fx-font-size: 18px;">
+                                <GridPane.rowIndex>1</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </ComboBox>
+
+                            <Label styleClass="labelMain" text="Municipality:">
+                                <GridPane.rowIndex>2</GridPane.rowIndex>
+                                <GridPane.columnIndex>0</GridPane.columnIndex>
+                                <GridPane.halignment>RIGHT</GridPane.halignment>
+                            </Label>
+                            <TextField fx:id="municipality" minHeight="40" minWidth="254" style="-fx-font-size: 18px;">
+                                <GridPane.rowIndex>2</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </TextField>
+
+                            <Label styleClass="labelMain" text="Address:">
+                                <GridPane.rowIndex>3</GridPane.rowIndex>
+                                <GridPane.columnIndex>0</GridPane.columnIndex>
+                                <GridPane.halignment>RIGHT</GridPane.halignment>
+                            </Label>
+                            <TextField fx:id="address" minHeight="40" minWidth="254" style="-fx-font-size: 18px;">
+                                <GridPane.rowIndex>3</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </TextField>
+
+                            <Label styleClass="labelMain" text="From:">
+                                <GridPane.rowIndex>4</GridPane.rowIndex>
+                                <GridPane.columnIndex>0</GridPane.columnIndex>
+                                <GridPane.halignment>RIGHT</GridPane.halignment>
+                            </Label>
+                            <DatePicker fx:id="dateFrom" minHeight="40" minWidth="254" maxWidth="254" style="-fx-font-size: 18px;">
+                                <GridPane.rowIndex>4</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </DatePicker>
+
+                            <Label styleClass="labelMain" text="To:">
+                                <GridPane.rowIndex>5</GridPane.rowIndex>
+                                <GridPane.columnIndex>0</GridPane.columnIndex>
+                                <GridPane.halignment>RIGHT</GridPane.halignment>
+                            </Label>
+                            <DatePicker fx:id="dateTo" minHeight="40" minWidth="254" maxWidth="254" style="-fx-font-size: 18px;">
+                                <GridPane.rowIndex>5</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </DatePicker>
+
+                            <Label styleClass="labelMain" text="Price:">
+                                <GridPane.rowIndex>6</GridPane.rowIndex>
+                                <GridPane.columnIndex>0</GridPane.columnIndex>
+                                <GridPane.halignment>RIGHT</GridPane.halignment>
+                            </Label>
+                            <TextField fx:id="price" minHeight="40" minWidth="254" style="-fx-font-size: 18px;">
+                                <GridPane.rowIndex>6</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </TextField>
+                        </GridPane>
+                    </Pane>
+
+                    <Label styleClass="labelMain" text="Details:">
+                        <GridPane.rowIndex>1</GridPane.rowIndex>
+                        <GridPane.columnIndex>0</GridPane.columnIndex>
+                        <GridPane.halignment>RIGHT</GridPane.halignment>
+                    </Label>
+                    <TextArea fx:id="details" maxHeight="70" maxWidth="350" style="-fx-font-size: 16px;"
+                              wrapText="true">
+                        <GridPane.rowIndex>1</GridPane.rowIndex>
+                        <GridPane.columnIndex>1</GridPane.columnIndex>
+                    </TextArea>
+
+                    <Pane minWidth="360" maxWidth="360" minHeight="40" maxHeight="40">
+                        <GridPane.rowIndex>2</GridPane.rowIndex>
+                        <GridPane.columnIndex>0</GridPane.columnIndex>
+                        <GridPane.columnSpan>2</GridPane.columnSpan>
+                        <GridPane.halignment>CENTER</GridPane.halignment>
+                        <GridPane hgap="10" vgap="10">
+
+                            <Button minHeight="40" minWidth="172" styleClass="button" onAction="#createRequest"
+                                    text="Register">
+                                <GridPane.rowIndex>0</GridPane.rowIndex>
+                                <GridPane.columnIndex>0</GridPane.columnIndex>
+                            </Button>
+                            <Button minHeight="40" minWidth="172" styleClass="button" text="Cancel" onAction="#back">
+                                <GridPane.rowIndex>0</GridPane.rowIndex>
+                                <GridPane.columnIndex>1</GridPane.columnIndex>
+                            </Button>
+                        </GridPane>
+                    </Pane>
+                </GridPane>
+            </StackPane>
+        </Group>
+    </center>
+    <bottom>
+        <VBox minHeight="25"></VBox>
+    </bottom>
+</BorderPane>

@@ -67,6 +67,10 @@ public class WorkerDetailsController {
         WorkerDetailsController.worker = worker;
     }
 
+    public static User getWorker() {
+        return worker;
+    }
+
     public void login(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
         Main.PRIMARY_STAGE.setScene(new Scene(root, 800, 600));
@@ -75,6 +79,12 @@ public class WorkerDetailsController {
 
     public void back(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("workers.fxml"));
+        Main.PRIMARY_STAGE.setScene(new Scene(root, 800, 600));
+        Main.PRIMARY_STAGE.show();
+    }
+
+    public void createRequest(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("create_request.fxml"));
         Main.PRIMARY_STAGE.setScene(new Scene(root, 800, 600));
         Main.PRIMARY_STAGE.show();
     }

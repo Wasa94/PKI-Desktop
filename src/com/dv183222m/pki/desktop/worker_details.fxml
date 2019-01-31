@@ -115,6 +115,7 @@
                     </StackPane.margin>
                     <GridPane hgap="10">
                         <Button minHeight="40" minWidth="172" styleClass="button" text="Create Request" visible="false"
+                                onAction="#createRequest"
                                 fx:id="createRequest">
                             <GridPane.rowIndex>0</GridPane.rowIndex>
                             <GridPane.columnIndex>0</GridPane.columnIndex>
