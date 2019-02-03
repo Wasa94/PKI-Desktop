@@ -98,6 +98,7 @@ public class RequestsController {
         int toIndex = Math.min(fromIndex + rowsPerPage, data.size());
         int carry = (data.size() % rowsPerPage) == 0 ? 0 : 1;
         int numOfPages = (data.size() - data.size() % rowsPerPage) / rowsPerPage + carry;
+        numOfPages = numOfPages <= 0 ? 1 : numOfPages;
         pagination.setPageCount(numOfPages);
 
         table.setItems(FXCollections.observableArrayList(data.subList(fromIndex, toIndex)));
