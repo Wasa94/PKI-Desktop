@@ -12,8 +12,8 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class ProfileController {
     private static User user;
@@ -35,8 +35,8 @@ public class ProfileController {
         phoneNumber.setText("Phone: " + user.getPhoneNumber());
 
         if(user.getImage() != null && !user.getImage().isEmpty()) {
-            File file = new File(user.getImage());
-            image.setImage(new Image(file.toURI().toString()));
+            InputStream file = getClass().getClassLoader().getResourceAsStream(user.getImage());
+            image.setImage(new Image(file));
         }
     }
 

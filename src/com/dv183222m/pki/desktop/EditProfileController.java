@@ -11,8 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class EditProfileController {
     @FXML
@@ -37,8 +37,8 @@ public class EditProfileController {
         phoneNumber.setText(user.getPhoneNumber());
 
         if (user.getImage() != null && !user.getImage().isEmpty()) {
-            File file = new File(user.getImage());
-            image.setImage(new Image(file.toURI().toString()));
+            InputStream file = getClass().getClassLoader().getResourceAsStream(user.getImage());
+            image.setImage(new Image(file));
         }
     }
 

@@ -22,7 +22,7 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.username = username;
         this.password = password;
-        this.image = "src/res/google.png";
+        this.image = "res/google.png";
 
         if (type == UserType.Worker) {
             worker = new Worker(this);

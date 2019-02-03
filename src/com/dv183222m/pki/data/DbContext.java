@@ -22,7 +22,7 @@ public class DbContext {
     private Map<String, User> users;
     private void initUsers() {
         users.put("Vasa", new User("Vasilije", "Dolic", UserType.Client, "Glavna 10", "011/123-456", "Vasa", "vasa123"));
-        users.get("Vasa").setImage("src/res/google.png");
+        users.get("Vasa").setImage("res/google.png");
     }
 
     private void initWorkers() {
@@ -36,7 +36,7 @@ public class DbContext {
             add(WorkerType.Electrician);
             add(WorkerType.Carpenter);
         }});
-        users.get("Mare").setImage("src/res/google.png");
+        users.get("Mare").setImage("res/google.png");
 
         users.put("Pera", new User("Pera", "Peric", UserType.Worker, "Cara Dusana 15", "061/123-654", "Pera", "pera123"));
         worker = users.get("Pera").getWorker();
@@ -46,7 +46,7 @@ public class DbContext {
             add(WorkerType.Electrician);
             add(WorkerType.Plumber);
         }});
-        users.get("Pera").setImage("src/res/bmw.jpg");
+        users.get("Pera").setImage("res/bmw.jpg");
 
         users.put("Laza", new User("Laza", "Lazarevic", UserType.Worker, "Lazina 2", "062/785-456", "Laza", "Laza123"));
         worker = users.get("Laza").getWorker();
@@ -55,7 +55,7 @@ public class DbContext {
         worker.setTypes(new ArrayList<WorkerType>() {{
             add(WorkerType.Carpenter);
         }});
-        users.get("Laza").setImage("src/res/explorer.png");
+        users.get("Laza").setImage("res/explorer.png");
 
         users.put("Mika", new User("Mika", "Mikic", UserType.Worker, "Kralja Aleksandra 165", "066/128-888", "Mika", "Mika123"));
         worker = users.get("Mika").getWorker();
@@ -64,7 +64,7 @@ public class DbContext {
         worker.setTypes(new ArrayList<WorkerType>() {{
             add(WorkerType.Electrician);
         }});
-        users.get("Mika").setImage("src/res/peugeot.jpg");
+        users.get("Mika").setImage("res/peugeot.jpg");
 
         users.put("Zika", new User("Zika", "Zikic", UserType.Worker, "Nikole Tesle 1", "062/111-456", "Zika", "zika123"));
         worker = users.get("Zika").getWorker();
@@ -75,7 +75,7 @@ public class DbContext {
             add(WorkerType.Carpenter);
             add(WorkerType.Plumber);
         }});
-        users.get("Zika").setImage("src/res/android.png");
+        users.get("Zika").setImage("res/android.png");
 
         users.put("Milos", new User("Milos", "Milosevic", UserType.Worker, "Pozeska 60", "062/111-456", "Milos", "milos123"));
         worker = users.get("Milos").getWorker();
@@ -86,7 +86,7 @@ public class DbContext {
             add(WorkerType.Carpenter);
             add(WorkerType.Plumber);
         }});
-        users.get("Milos").setImage("src/res/android.png");
+        users.get("Milos").setImage("res/android.png");
 
     }
 

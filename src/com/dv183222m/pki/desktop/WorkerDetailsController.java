@@ -13,8 +13,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import org.controlsfx.control.Rating;
 
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class WorkerDetailsController {
     private static User worker;
@@ -58,8 +58,8 @@ public class WorkerDetailsController {
         experience.setText(worker.getWorker().getExperience() + years + " of experience");
 
         if(worker.getImage() != null && !worker.getImage().isEmpty()) {
-            File file = new File(worker.getImage());
-            image.setImage(new Image(file.toURI().toString()));
+            InputStream file = getClass().getClassLoader().getResourceAsStream(worker.getImage());
+            image.setImage(new Image(file));
         }
     }
 
